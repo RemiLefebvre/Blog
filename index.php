@@ -27,6 +27,15 @@
     </head>
 
     <body>
+      <div class="card container">
+        <form class="d-flex" action="post.php" method="post">
+          <div class="">
+            <input type="text" name="titre" placeholder="Titre">
+            <textarea name="contenu" rows="8" cols="80"></textarea>
+          </div>
+          <input type="submit" value="Poster">
+        </form>
+      </div>
 
         <h1>SUPER BLOG 2000</h1>
         <?php
