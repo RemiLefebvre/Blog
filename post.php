@@ -1,13 +1,13 @@
 <?php
   include('connection.php');
 
-  $req = $bdd->prepare('INSERT INTO billets(titre,contenu,date_post) VALUES(:titre,:contenu,NOW())');
+  $req = $bdd->prepare('INSERT INTO billets(titre,contenu,nb_com) VALUES(:titre,:contenu,:nb_com)');
   $req->execute(array(
     'titre' => $_POST['titre'],
 	'contenu' => $_POST['contenu'],
+  'nb_com'=> 0
   ));
 
   header('Location: index.php');
 
-  // $_POST['titre'], $_POST['contenu'],NOW()
  ?>
