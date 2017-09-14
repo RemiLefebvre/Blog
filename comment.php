@@ -2,11 +2,10 @@
 
   <?php
   $nb=htmlspecialchars($_GET['nb']);
-
+  echo '<a href="index.php">Retour</a>';
   if ($_GET['nb']) {
     if (isset($_GET['nb'])) {
 
-  echo $_GET['nb'];
   $reponse = $bdd->prepare('SELECT * FROM billets WHERE ID=:ID') or die(print_r($bdd->errorInfo()));
   $reponse->execute(array(
     'ID' => $nb
@@ -38,7 +37,7 @@
   </div>
   <div class="container mt-5">
   <?php
-  $reponse = $bdd->prepare('SELECT * FROM commentaires WHERE ID_billet=:ID') or die(print_r($bdd->errorInfo()));
+  $reponse = $bdd->prepare('SELECT * FROM commentaires WHERE ID_billet=:ID  ORDER BY ID DESC') or die(print_r($bdd->errorInfo()));
   $reponse->execute(array(
     'ID' => $nb
   ));
