@@ -33,7 +33,7 @@
               <?php echo $donnees['contenu'] ?>
               <?php echo '<br>' ?>
               <?php
-                echo '<a href="comment.php"> ' . $donnees['nb_com'] . ' commentaires </a>';
+                echo '<a href="comment.php?nb=' . $donnees["ID"] . '"> ' . $donnees['nb_com'] . ' commentaires </a>';
                 ?>
             </div>
             <?php
@@ -43,5 +43,5 @@
 
           ?>
         </div>
-        
+
 <?php include('footer.php') ?>
