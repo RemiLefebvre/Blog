@@ -1,3 +1,6 @@
+<?php
+  include ('connection.php');
+ ?>
 <!doctype html>
 <html class="no-js" lang="FR">
     <head>
@@ -25,13 +28,26 @@
 
     <body>
 
+        <h1>SUPER BLOG 2000</h1>
         <?php
-        $req=$reponse = $bdd->query('SELECT * FROM table') or die(print_r($bdd->errorInfo()));
+
+        $req=$reponse = $bdd->query('SELECT * FROM billets') or die(print_r($bdd->errorInfo()));
+
+        while ($donnees = $reponse->fetch()) {
+          ?>
+          <div class="card container">
+            <div class="d-flex">
+              <h3><?php echo $donnees['titre'] ?></h3>
+              <h5><?php echo $donnees['date'] ?></h5>
+            </div>
+            <?php echo $donnees['contenu'] ?>
+          </div>
+          <?php
+        }
 
         $reponse->closeCursor(); // Termine le traitement de la requête
 
         ?>
-
       </main>
 
       </script>
