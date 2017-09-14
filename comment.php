@@ -1,9 +1,17 @@
 <?php include ('header.php') ?>
 
   <?php
+  $nb=htmlspecialchars($_GET['nb']);
+
+  if ($_GET['nb']) {
+    if (isset($_GET['nb'])) {
 
   echo $_GET['nb'];
-  $reponse = $bdd->query('SELECT * FROM billets WHERE ID='.$_GET["nb"].'') or die(print_r($bdd->errorInfo()));
+  $reponse = $bdd->prepare('SELECT * FROM billets WHERE ID=:ID') or die(print_r($bdd->errorInfo()));
+  $reponse->execute(array(
+    'ID' => $nb
+  ));
+
   while ($donnees = $reponse->fetch()) {
    ?>
    <div class="container">
@@ -21,7 +29,7 @@
    ?>
 
     <h4 class="mt-5">Commentaires</h4>
-    <form  action="post_com.php?nb=<?php echo $_GET['nb']?>" method="post">
+    <form  action="post_com.php?nb=<?php echo $nb?>" method="post">
       <input type="text" name="auteur" placeholder="Nom">
       <input type="text" name="com" placeholder="Commentaire..">
       <input type="submit" name="" value="Envoyer">
@@ -30,7 +38,11 @@
   </div>
   <div class="container mt-5">
   <?php
-  $reponse = $bdd->query('SELECT * FROM commentaires WHERE ID_billet='. $_GET["nb"] .'') or die(print_r($bdd->errorInfo()));
+  $reponse = $bdd->prepare('SELECT * FROM commentaires WHERE ID_billet=:ID') or die(print_r($bdd->errorInfo()));
+  $reponse->execute(array(
+    'ID' => $nb
+  ));
+
   while ($donnees = $reponse->fetch()) {
  ?>
     <div class="card">
@@ -45,5 +57,13 @@
     };
   ?>
   </div>
+
+<?php
+    }
+    else{
+      echo 'eh didon';
+    }
+  }
+?>
 
 <?php include ('footer.php') ?>
