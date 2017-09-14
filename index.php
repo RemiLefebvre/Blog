@@ -47,7 +47,7 @@
           <div class="card container">
             <div class="d-flex">
               <h3><?php echo $donnees['titre'] ?></h3>
-              <h5><?php echo $donnees['date'] ?></h5>
+              <h5 class="ml-auto "><?php echo $donnees['date_post'] ?></h5>
             </div>
             <?php echo $donnees['contenu'] ?>
           </div>
