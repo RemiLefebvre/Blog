@@ -44,13 +44,14 @@
 
   while ($donnees = $reponse->fetch()) {
  ?>
-    <div class="card">
-      <div class="d-flex ">
-        <h5><strong><?php echo $donnees['auteur'] ?></strong></h5>
-        <p class="ml-auto"><?php echo $donnees['date_com'] ?> </p>
-      </div>
-      <p><?php echo $donnees['com'] ?></p>
-    </div>
+ <div class="container">
+ 	<div class="row">
+ 		 <div class="comment-box">
+             <h4 class="title"> <strong><?php echo $donnees['auteur'] ?></strong> <?php echo $donnees['date_com'] ?> </h4>
+             <?php echo $donnees['com'] ?>
+         </div>
+ 	</div>
+ </div>
 
  <?php
     };

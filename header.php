@@ -27,3 +27,17 @@
     </head>
 
     <body>
+      <nav class="d-flex justify-content-around navbar-light bg-faded">
+          <a class="navbar-brand" href="#">Brand</a>
+          <nav class="nav pull-xs-left d-flex">
+            <a class="nav-item nav-link" href="#">Dashboard</a>
+            <a class="nav-item nav-link" href="#">Settings</a>
+            <a class="nav-item nav-link" href="#">Profile</a>
+            <a class="nav-item nav-link" href="#">Help</a>
+          </nav>
+          <form class="form-inline pull-xs-right">
+              <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+              <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+              <a class="btn btn-primary" href="#"><i class="fa fa-sign-in fa-lg fa-fw"></i>Login</a>
+          </form>
+      </nav>

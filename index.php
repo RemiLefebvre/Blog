@@ -3,25 +3,26 @@
  ?>
 
       <div class="container">
+        <h1 class="mt-5">SKYBLOG</h1>
 
         <h3>Ajouter post </h3>
-        <div class="card">
-          <form class="d-flex" action="post.php" method="post">
-            <div class="">
-              <input type="text" name="titre" placeholder="Titre">
+        <div class="card ">
+          <form class=" d-flex flex-column" action="post.php" method="post">
+            <div class="d-flex flex-column">
+              <input class="col-3" type="text" name="titre" placeholder="Titre">
               <textarea name="contenu" rows="8" cols="80"></textarea>
             </div>
-            <input type="submit" value="Poster">
+            <input class="col-2 btn btn-success green" type="submit" value="Poster">
           </form>
         </div>
       </div>
 
+
         <div class="container">
 
-          <h1 class="mt-5">SUPER BLOG 2000</h1>
           <?php
 
-          $reponse = $bdd->query('SELECT * FROM billets ORDER BY ID DESC') or die(print_r($bdd->errorInfo()));
+          $reponse = $bdd->query('SELECT * FROM billets ORDER BY ID DESC LIMIT 0,5') or die(print_r($bdd->errorInfo()));
 
           while ($donnees = $reponse->fetch()) {
             ?>
